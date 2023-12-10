@@ -12,7 +12,7 @@
 
 #include "ClapTrap.hpp"
 
-ClapTrap::ClapTrap(void)
+ClapTrap::ClapTrap(void): _hitpoints(10), _energypoints(10), _damagepoints(0)
 {
 	std::cout << "Default constructor called\n";	
 }
@@ -36,13 +36,10 @@ ClapTrap::~ClapTrap(void)
 	std::cout << "Destructor called\n";	
 }
 
-ClapTrap::ClapTrap(const std::string str)
+ClapTrap::ClapTrap(const std::string str): _hitpoints(10), _energypoints(10), _damagepoints(0)
 {
 	std::cout << "Constructor called\n";
 	_name = str;
-	_hitpoints = 10;
-	_energypoints = 10;
-	_damagepoints = 0;
 }
 
 void	ClapTrap::attack(const std::string& target)
