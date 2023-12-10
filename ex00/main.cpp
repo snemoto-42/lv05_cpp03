@@ -10,3 +10,20 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "ClapTrap.hpp"
+
+int	main(void)
+{
+	ClapTrap c1("nemoto");
+	ClapTrap c2("shota");
+
+	c1.attack("shota");
+	c1.takeDamage(1);
+	c1.beRepaired(1);
+
+	c2.attack("nemoto");
+	c2.takeDamage(1);
+	c2.beRepaired(1);
+
+	return 0;
+}
