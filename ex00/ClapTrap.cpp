@@ -47,42 +47,42 @@ ClapTrap::ClapTrap(const std::string str)
 
 void	ClapTrap::attack(const std::string& target)
 {
-	if (_energypoints < 0 || _hitpoints < 0)
-		std::cout << _name << "can't do anything\n";
+	if (_energypoints < 1 || _hitpoints < 1)
+		std::cout << _name << " can't do anything\n";
 	else
 	{
-		std::cout << "ClapTrap " << _name << " attacks " << target << ", causing " << _damagepoints << " points of damage!\n";
 		_energypoints -= 1;
+		std::cout << "ClapTrap " << _name << " attacks " << target << ", causing " << _damagepoints << " points of damage! ";
+		std::cout << _name << "'s energypoints is " << _energypoints << "\n";
 	}
 }
 
 void	ClapTrap::takeDamage(unsigned int amount)
 {
-	if (_energypoints - amount < 0 || _hitpoints  - amount < 0)
+	if (static_cast<int>(_energypoints - amount) < 0 || static_cast<int>(_hitpoints  - amount) < 0)
 	{
-		std::cout << "Out of range\n";
 		_hitpoints = 0;
 	}
 	else
 	{
 		_hitpoints -= amount;
 	}
-	std::cout << _name << " takes " << amount << " damages.\n";
-	std::cout << "Hitpoints is " << _hitpoints << "\n";
+	std::cout << _name << " takes " << amount << " damages. ";
+	std::cout << _name << "'s hitpoints is " << _hitpoints << "\n";
 }
 
 void	ClapTrap::beRepaired(unsigned int amount)
 {
-	if (_energypoints < 0 || _hitpoints < 0)
-		std::cout << _name << "can't do anything\n";
+	if (_energypoints < 1 || _hitpoints < 1)
+		std::cout << _name << " can't do anything\n";
 	else if (_energypoints + amount > UINT_MAX || _hitpoints + amount > UINT_MAX)
 		std::cout << "Out of range\n";
 	else
 	{
 		_energypoints -= 1;
 		_hitpoints += amount;
-		std::cout << _name << " is repaired " << amount << " points.\n";
-		std::cout << "Energypoints is " << _energypoints << "\n";
-		std::cout << "Hitpoints is " << _hitpoints << "\n";
+		std::cout << _name << " is repaired " << amount << " points. ";
+		std::cout << _name << "'s hitpoints is " << _hitpoints << " ";
+		std::cout << _name << "'s energypoints is " << _energypoints << "\n";
 	}
 }
