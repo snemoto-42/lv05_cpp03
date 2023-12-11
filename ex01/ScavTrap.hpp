@@ -10,3 +10,18 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+#pragma once
+#ifndef __SCAV_TRAP_HPP__
+#define __SCAV_TRAP_HPP__
+
+#include "ClapTrap.hpp"
+
+class ScavTrap : public ClapTrap 
+{
+	public:
+
+	private:
+
+};
+
+#endif /* __SCAV_TRAP_HPP__ */

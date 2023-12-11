@@ -10,3 +10,53 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "ClapTrap.hpp"
+
+int	main(void)
+{
+	std::cout << "--- ex00 ---\n";	
+	{
+		std::cout << "--- test 1 ---\n";
+
+		ClapTrap c1("ct1");
+
+		c1.attack("enemy");
+
+		c1.takeDamage(1);
+		c1.beRepaired(1);
+
+		c1.takeDamage(8);
+		c1.beRepaired(1);
+
+		c1.beRepaired(1);
+		c1.beRepaired(1);
+		c1.beRepaired(1);
+		c1.beRepaired(1);
+		c1.beRepaired(1);
+		c1.beRepaired(1);
+		c1.beRepaired(50);
+
+		c1.beRepaired(1);
+		c1.takeDamage(100);
+		c1.takeDamage(1);
+		c1.attack("enemy");
+	}
+	{
+		std::cout << "--- test 2 ---\n";
+
+		ClapTrap c1("ct1");
+
+		c1.takeDamage(10);
+		c1.beRepaired(1);
+	}
+	{
+		std::cout << "--- test 3 ---\n";
+
+		ClapTrap c1("ct1");
+
+		c1.beRepaired(UINT_MAX);
+		c1.beRepaired(1);
+	}
+
+	return 0;
+}
