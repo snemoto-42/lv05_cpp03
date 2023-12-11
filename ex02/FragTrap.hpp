@@ -29,8 +29,6 @@ class FragTrap : public ClapTrap
 		virtual void	attack( const std::string& );
 		void	highFivesGuys( void );
 
-	private:
-
 };
 
 #endif /* __FRAG_TRAP_HPP__ */
