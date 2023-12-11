@@ -12,7 +12,7 @@
 
 #include "ClapTrap.hpp"
 
-ClapTrap::ClapTrap(void): _hitpoints(10), _energypoints(10), _damagepoints(0)
+ClapTrap::ClapTrap(void): _name(""), _hitpoints(10), _energypoints(10), _attackdamage(0)
 {
 	std::cout << "Default constructor called\n";	
 }
@@ -36,10 +36,9 @@ ClapTrap::~ClapTrap(void)
 	std::cout << "Destructor called\n";	
 }
 
-ClapTrap::ClapTrap(const std::string str): _hitpoints(10), _energypoints(10), _damagepoints(0)
+ClapTrap::ClapTrap(const std::string str): _name(str), _hitpoints(10), _energypoints(10), _attackdamage(0)
 {
 	std::cout << "Constructor called\n";
-	_name = str;
 }
 
 void	ClapTrap::attack(const std::string& target)
@@ -49,14 +48,14 @@ void	ClapTrap::attack(const std::string& target)
 	else
 	{
 		_energypoints -= 1;
-		std::cout << "ClapTrap " << _name << " attacks " << target << ", causing " << _damagepoints << " points of damage! ";
-		std::cout << _name << "'s energypoints is " << _energypoints << "\n";
+		std::cout << "ClapTrap " << _name << " attacks " << target << ", causing " << _attackdamage << " points of damage! ";
+		std::cout << _name << "'s energypoints is " << _energypoints << ".\n";
 	}
 }
 
 void	ClapTrap::takeDamage(unsigned int amount)
 {
-	if (static_cast<int>(_energypoints - amount) < 0 || static_cast<int>(_hitpoints  - amount) < 0)
+	if (_energypoints < amount || _hitpoints < amount)
 	{
 		_hitpoints = 0;
 	}
@@ -65,21 +64,27 @@ void	ClapTrap::takeDamage(unsigned int amount)
 		_hitpoints -= amount;
 	}
 	std::cout << _name << " takes " << amount << " damages. ";
-	std::cout << _name << "'s hitpoints is " << _hitpoints << "\n";
+	std::cout << _name << "'s hitpoints is " << _hitpoints << ".\n";
 }
 
 void	ClapTrap::beRepaired(unsigned int amount)
 {
 	if (_energypoints < 1 || _hitpoints < 1)
 		std::cout << _name << " can't do anything\n";
-	else if (_energypoints + amount > UINT_MAX || _hitpoints + amount > UINT_MAX)
-		std::cout << "Out of range\n";
+	else if (_hitpoints >= (UINT_MAX - amount))
+	{
+		_energypoints -= 1;
+		_hitpoints = UINT_MAX;
+		std::cout << _name << " is repaired " << "MAX points. ";
+		std::cout << _name << "'s hitpoints is " << _hitpoints << "(MAX points). ";
+		std::cout << _name << "'s energypoints is " << _energypoints << ".\n";
+	}
 	else
 	{
 		_energypoints -= 1;
 		_hitpoints += amount;
 		std::cout << _name << " is repaired " << amount << " points. ";
-		std::cout << _name << "'s hitpoints is " << _hitpoints << " ";
-		std::cout << _name << "'s energypoints is " << _energypoints << "\n";
+		std::cout << _name << "'s hitpoints is " << _hitpoints << ". ";
+		std::cout << _name << "'s energypoints is " << _energypoints << ".\n";
 	}
 }
