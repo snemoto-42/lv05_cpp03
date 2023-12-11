@@ -22,11 +22,11 @@ class FragTrap : public ClapTrap
 		FragTrap( void );
 		FragTrap( const FragTrap& );
 		FragTrap& operator=( const FragTrap& );
-		~FragTrap( void );
+		virtual ~FragTrap( void );
 
 		FragTrap( const std::string );
 
-		void	attack( const std::string& );
+		virtual void	attack( const std::string& );
 		void	highFivesGuys( void );
 
 	private:

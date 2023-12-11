@@ -22,11 +22,11 @@ class ScavTrap : public ClapTrap
 		ScavTrap( void );
 		ScavTrap( const ScavTrap& );
 		ScavTrap& operator=( const ScavTrap& );
-		~ScavTrap( void );
+		virtual ~ScavTrap( void );
 
 		ScavTrap( const std::string );
 
-		void	attack( const std::string& );
+		virtual void	attack( const std::string& );
 		void	guardGate ( void );
 
 	private:
