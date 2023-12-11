@@ -14,7 +14,7 @@
 # Variables																	   #
 # **************************************************************************** #
 
-NAME	= claptrap
+NAME	= scavtrap
 SRCS	= $(shell echo *.cpp)
 OBJDIR	= obj/
 OBJS	= $(addprefix $(OBJDIR),$(SRCS:.cpp=.o)) 

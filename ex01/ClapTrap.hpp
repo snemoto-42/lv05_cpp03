@@ -23,15 +23,15 @@ class ClapTrap
 		ClapTrap( void );
 		ClapTrap( const ClapTrap& );
 		ClapTrap& operator=( const ClapTrap& );
-		~ClapTrap( void );
+		virtual ~ClapTrap( void );
 
 		ClapTrap( const std::string );
 
-		void	attack( const std::string& );
+		virtual void	attack( const std::string& );
 		void	takeDamage( unsigned int );
 		void	beRepaired( unsigned int );
 
-	private:
+	protected:
 		std::string		_name;
 		unsigned int	_hitpoints;
 		unsigned int	_energypoints;

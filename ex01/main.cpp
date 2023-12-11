@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ClapTrap.hpp"
+#include "ScavTrap.hpp"
 
 int	main(void)
 {
@@ -57,6 +57,44 @@ int	main(void)
 		c1.beRepaired(UINT_MAX);
 		c1.beRepaired(1);
 	}
+	std::cout << "--- ex01 ---\n";	
+	{
+		std::cout << "--- test 1 ---\n";
 
+		ScavTrap c1("ct1");
+
+		c1.attack("enemy");
+
+		c1.takeDamage(1);
+		c1.beRepaired(1);
+
+		c1.takeDamage(8);
+		c1.beRepaired(1);
+
+		for (unsigned int i = 0; i < 48; i++)
+			c1.beRepaired(1);
+		c1.beRepaired(50);
+
+		c1.beRepaired(1);
+		c1.takeDamage(100);
+		c1.takeDamage(1);
+		c1.attack("enemy");
+	}
+	{
+		std::cout << "--- test 2 ---\n";
+
+		ScavTrap c1("ct1");
+
+		c1.takeDamage(100);
+		c1.beRepaired(1);
+	}
+	{
+		std::cout << "--- test 3 ---\n";
+
+		ScavTrap c1("ct1");
+
+		c1.beRepaired(UINT_MAX);
+		c1.beRepaired(1);
+	}
 	return 0;
 }
