@@ -6,7 +6,7 @@
 /*   By: snemoto <snemoto@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/15 12:48:30 by snemoto           #+#    #+#             */
-/*   Updated: 2023/10/15 12:48:31 by snemoto          ###   ########.fr       */
+/*   Updated: 2023/12/12 17:56:52 by snemoto          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 
 int	main(void)
 {
-	std::cout << "--- ex00 ---\n";	
+	std::cout << "--- ClapTrap ---\n";	
 	{
 		std::cout << "--- test 1 ---\n";
 
@@ -49,6 +49,7 @@ int	main(void)
 
 		c1.takeDamage(10);
 		c1.beRepaired(1);
+		c1.attack("enemy");
 	}
 	{
 		std::cout << "--- test 3 ---\n";
@@ -57,8 +58,10 @@ int	main(void)
 
 		c1.beRepaired(UINT_MAX);
 		c1.beRepaired(1);
+		c1.takeDamage(100);
+		c1.beRepaired(UINT_MAX);
 	}
-	std::cout << "--- ex01 ---\n";	
+	std::cout << "--- ScavTrap ---\n";	
 	{
 		std::cout << "--- test 1 ---\n";
 
@@ -88,6 +91,7 @@ int	main(void)
 
 		c1.takeDamage(100);
 		c1.beRepaired(1);
+		c1.attack("enemy");
 	}
 	{
 		std::cout << "--- test 3 ---\n";
@@ -96,8 +100,10 @@ int	main(void)
 
 		c1.beRepaired(UINT_MAX);
 		c1.beRepaired(1);
+		c1.takeDamage(100);
+		c1.beRepaired(UINT_MAX);
 	}
-	std::cout << "--- ex02 ---\n";	
+	std::cout << "--- FragTrap ---\n";	
 	{
 		std::cout << "--- test 1 ---\n";
 
@@ -127,6 +133,7 @@ int	main(void)
 
 		c1.takeDamage(100);
 		c1.beRepaired(1);
+		c1.attack("enemy");
 	}
 	{
 		std::cout << "--- test 3 ---\n";
@@ -135,6 +142,8 @@ int	main(void)
 
 		c1.beRepaired(UINT_MAX);
 		c1.beRepaired(1);
+		c1.takeDamage(100);
+		c1.beRepaired(UINT_MAX);
 	}
 	return 0;
 }

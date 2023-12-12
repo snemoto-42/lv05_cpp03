@@ -6,7 +6,7 @@
 /*   By: snemoto <snemoto@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/15 12:48:30 by snemoto           #+#    #+#             */
-/*   Updated: 2023/10/15 17:05:15 by snemoto          ###   ########.fr       */
+/*   Updated: 2023/12/12 17:27:41 by snemoto          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ FragTrap::~FragTrap(void)
 	std::cout << "FragTrap : Destructor called\n";	
 }
 
-FragTrap::FragTrap(std::string str): ClapTrap(str)
+FragTrap::FragTrap(const std::string& str): ClapTrap(str)
 {
 	std::cout << "FragTrap : Constructor called\n";
 	_hitpoints = 100;

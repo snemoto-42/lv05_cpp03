@@ -6,7 +6,7 @@
 /*   By: snemoto <snemoto@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/15 12:48:30 by snemoto           #+#    #+#             */
-/*   Updated: 2023/10/15 17:04:48 by snemoto          ###   ########.fr       */
+/*   Updated: 2023/12/12 17:32:08 by snemoto          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ ClapTrap::~ClapTrap(void)
 	std::cout << "Destructor called\n";	
 }
 
-ClapTrap::ClapTrap(const std::string str): _name(str), _hitpoints(10), _energypoints(10), _attackdamage(0)
+ClapTrap::ClapTrap(const std::string& str): _name(str), _hitpoints(10), _energypoints(10), _attackdamage(0)
 {
 	std::cout << "Constructor called\n";
 }
@@ -55,13 +55,13 @@ void	ClapTrap::attack(const std::string& target)
 
 void	ClapTrap::takeDamage(unsigned int amount)
 {
-	if (_energypoints < amount || _hitpoints < amount)
+	if (_hitpoints - amount > 0)
 	{
-		_hitpoints = 0;
+		_hitpoints -= amount;
 	}
 	else
 	{
-		_hitpoints -= amount;
+		_hitpoints = 0;
 	}
 	std::cout << _name << " takes " << amount << " damages. ";
 	std::cout << _name << "'s hitpoints is " << _hitpoints << ".\n";

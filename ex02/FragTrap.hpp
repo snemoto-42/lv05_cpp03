@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   FragTrap.h                                         :+:      :+:    :+:   */
+/*   FragTrap.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: snemoto <snemoto@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/15 12:48:30 by snemoto           #+#    #+#             */
-/*   Updated: 2023/10/15 17:05:17 by snemoto          ###   ########.fr       */
+/*   Updated: 2023/12/12 17:27:30 by snemoto          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ class FragTrap : public ClapTrap
 		FragTrap& operator=( const FragTrap& );
 		virtual ~FragTrap( void );
 
-		FragTrap( const std::string );
+		FragTrap( const std::string& );
 
 		virtual void	attack( const std::string& );
 		void	highFivesGuys( void );
